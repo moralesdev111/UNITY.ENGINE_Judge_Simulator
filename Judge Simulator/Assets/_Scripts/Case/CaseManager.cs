@@ -9,6 +9,7 @@ public class CaseManager : MonoBehaviour
 	public event Action<Case> onStartCase;
 	public event Action onEndCase;
 
+
 	private void Awake()
 	{
 		if (Instance == null)
@@ -21,6 +22,14 @@ public class CaseManager : MonoBehaviour
 			Destroy(gameObject);
 		}
 	}
+
+	private void Start()
+	{
+		StartCase(caseCollection[0]);
+	}
+
+	//set active case
+	//broadcast case start event
 	public void StartCase(Case activeCase)
 	{
 		print("case start");
@@ -28,6 +37,8 @@ public class CaseManager : MonoBehaviour
 		onStartCase?.Invoke(this.activeCase);
 	}
 
+	//null active case
+	//broadcast case end event
 	public void EndCase()
 	{
 		print("case end");

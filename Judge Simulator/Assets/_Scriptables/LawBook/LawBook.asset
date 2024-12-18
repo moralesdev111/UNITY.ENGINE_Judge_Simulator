@@ -9,11 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 85e0304854d5b8d428f9d0a8714b465b, type: 3}
-  m_Name: Person
+  m_Script: {fileID: 11500000, guid: 0827858eb47033246be60a97f458eb68, type: 3}
+  m_Name: LawBook
   m_EditorClassIdentifier: 
-  role: 0
-  personName: 
-  personGender: 
-  personAge: 
-  dialogues: []
+  case0Law: {fileID: 11400000, guid: d4fcc50528e2f1a4294c9386f730f859, type: 2}
+  case1Law: {fileID: 0}

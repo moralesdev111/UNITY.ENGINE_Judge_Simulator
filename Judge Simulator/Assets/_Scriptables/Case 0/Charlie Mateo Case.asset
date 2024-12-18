@@ -10,12 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 796e318ad4d772c4a93a1d060e8f9b34, type: 3}
-  m_Name: Harry's Assassination
+  m_Name: Charlie Mateo Case
   m_EditorClassIdentifier: 
   caseID: 0
-  caseName: Harry's Assassination
-  caseDetails: Harry was assassined on Wednesday at 03:00am.
-  defendantName: John
-  defendantSurname: Lewis
-  defendantGender: Male
-  defendantAge: 48
+  caseName: Charlie Mateo Case
+  caseDetails: Man tries to open door midflight
+  chargesDescription:
+  - Attempted endagerement of a flight
+  - Interferance with aircraft crew
+  persons:
+  - {fileID: 11400000, guid: 259a5f0048cc37a47b0dad9417f0f5cd, type: 2}
+  - {fileID: 11400000, guid: 52253c09ce1d7b348ab1407c703c79b0, type: 2}
+  evidence: []
