@@ -13,7 +13,6 @@ public class UIToggle : MonoBehaviour
 	{
 		if (!uI.CanTurnOnUI) return;
 		if (uI.ActorCanvasMap.TryGetValue(actor, out Canvas canvas))
-
 		{
 			canvas.gameObject.SetActive(true);
 			uI.CanTurnOnUI = false;

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 [CreateAssetMenu(fileName = "Evidence")]
 public class Evidence : ScriptableObject
@@ -10,5 +11,5 @@ public class Evidence : ScriptableObject
 
 	public EvidenceType evidenceType;
 	public string evidenceTitle;
-	public string filePath;
+	public Sprite evidence;
 }

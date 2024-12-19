@@ -34,34 +34,41 @@ public class CaseFileUI : MonoBehaviour
 	{
 		if (caseInstance.caseID == 0)
 		{
-			caseDescription.text = caseInstance.caseDetails;
-			chargesList.text = caseInstance.chargesDescription[0];
-			defendant.text = Array.Find(caseInstance.persons, person => person.role == Person.Role.defendant).personName;
-			witness.text = Array.Find(caseInstance.persons, person => person.role == Person.Role.witness).personName;
+			UtilityClass.SetText(caseDescription, caseInstance.caseDetails);
+			UtilityClass.SetText(chargesList, caseInstance.chargesDescription[0]);
+			UtilityClass.SetText(defendant, Array.Find(caseInstance.persons, person => person.role == Person.Role.defendant).personName);
+			UtilityClass.SetText(witness, Array.Find(caseInstance.persons, person => person.role == Person.Role.witness).personName);
 
-			if(caseInstance is CivilCase)
-			{
-				plaintiff.text = Array.Find(caseInstance.persons, person => person.role == Person.Role.plaintiff).personName;
-			}
+			CheckIfNeedPlaintiffData(caseInstance);
+			ToggleAndSetEvidenceText(caseInstance);
+		}
+	}
 
-			int smallestArray = Mathf.Min(evidenceTextPrefab.Length, caseInstance.evidence.Length);
-			for (int i = 0; i < smallestArray; i++)
-			{
-				evidenceTextPrefab[i].SetActive(true);
-				evidenceTextPrefab[i].GetComponent<TextMeshProUGUI>().text = caseInstance.evidence[i].evidenceTitle;
-			}
+	//set evidence texts according to evidence number
+	//set their respective names
+	private void ToggleAndSetEvidenceText(Case caseInstance)
+	{
+		int smallestArray = Mathf.Min(evidenceTextPrefab.Length, caseInstance.evidence.Length);
+		for (int i = 0; i < smallestArray; i++)
+		{
+			evidenceTextPrefab[i].SetActive(true);
+			evidenceTextPrefab[i].GetComponent<TextMeshProUGUI>().text = caseInstance.evidence[i].evidenceTitle;
+		}
+	}
+
+	//if its a civil case we will need to draw the plaintiff
+	private void CheckIfNeedPlaintiffData(Case caseInstance)
+	{
+		if (caseInstance is CivilCase)
+		{
+			plaintiff.text = Array.Find(caseInstance.persons, person => person.role == Person.Role.plaintiff).personName;
 		}
 	}
 
 	//clear the case file ui
 	private void ClearCaseFileUI()
 	{
-		caseDescription.text = "";
-		chargesList.text = "";
-		plaintiff.text = "";
-		defendant.text = "";
-		witness.text = "";
-
+		UtilityClass.ClearText(caseDescription, chargesList, plaintiff, defendant, witness);
 		for (int i = 0; i < evidenceTextPrefab.Length; i++)
 		{
 			evidenceTextPrefab[i].GetComponent<TextMeshProUGUI>().text = "";

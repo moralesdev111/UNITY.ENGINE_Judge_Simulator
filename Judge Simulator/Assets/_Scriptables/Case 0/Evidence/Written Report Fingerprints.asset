@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   evidenceType: 0
   evidenceTitle: Forensic Fingerprint Analysis
-  filePath: 
+  evidence: {fileID: 21300000, guid: 005f3034f40c00148b38d33a67ee38ae, type: 3}

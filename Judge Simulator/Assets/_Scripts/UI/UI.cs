@@ -26,24 +26,16 @@ public class UI : MonoBehaviour
 	private void OnEnable()
 	{
 		DictionarySetup();
-		SubscribeToEvents();
-		SubscribeToButtonEvent();
+		UtilityClass.SubscribeObjectsToEvent(actors, actor => actor.onActorClick += uiToggle.TurnOnActorUI);
+		UtilityClass.SubscribeObjectsToEvent(stopButton, button => button.onClick.AddListener(uiToggle.TurnOffActorUI));
 	}
 
 	//unsubscribe to every actor on click event
 	//unsubscribe to every button on click event
 	private void OnDisable()
 	{
-		UnsubscribeToEvents();
-		UnsubscribeToButtonEvent();
-	}
-
-	private void SubscribeToEvents()
-	{
-		for (int i = 0; i < actors.Length; i++)
-		{
-			actors[i].onActorClick += uiToggle.TurnOnActorUI;
-		}
+		UtilityClass.UnsubscribeObjectFromEvent(actors, actor => actor.onActorClick -= uiToggle.TurnOnActorUI);
+		UtilityClass.UnsubscribeObjectFromEvent(stopButton, button => button.onClick.RemoveListener(uiToggle.TurnOffActorUI));
 	}
 
 	private void DictionarySetup()
@@ -52,30 +44,6 @@ public class UI : MonoBehaviour
 		for (int i = 0; i < actors.Length; i++)
 		{
 			actorCanvasMap.Add(actors[i], actorsCanvas[i]);
-		}
-	}
-
-	private void UnsubscribeToEvents()
-	{
-		for (int i = 0; i < actors.Length; i++)
-		{
-			actors[i].onActorClick -= uiToggle.TurnOnActorUI;
-		}
-	}
-
-	private void SubscribeToButtonEvent()
-	{
-		for (int i = 0; i < stopButton.Length; i++)
-		{
-			stopButton[i].onClick.AddListener(uiToggle.TurnOffActorUI);
-		}
-	}
-
-	private void UnsubscribeToButtonEvent()
-	{
-		for (int i = 0; i < stopButton.Length; i++)
-		{
-			stopButton[i].onClick.RemoveListener(uiToggle.TurnOffActorUI);
 		}
 	}
 }

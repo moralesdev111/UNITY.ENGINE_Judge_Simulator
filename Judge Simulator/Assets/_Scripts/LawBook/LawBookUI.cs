@@ -30,19 +30,16 @@ public class LawBookUI : MonoBehaviour
 	{
 		if (caseInstance.caseID == 0) 
 		{
-			articleNumber.text = "Article " + lawBook.case0Law.articleNumber.ToString();
-			section1Text.text = lawBook.case0Law.articleDescriptions[0];
-			section2Text.text = lawBook.case0Law.articleDescriptions[1];
-			section3Text.text = lawBook.case0Law.articleDescriptions[2];
+			UtilityClass.SetText(articleNumber, "Article " + lawBook.case0Law.articleNumber.ToString());
+			UtilityClass.SetText(section1Text, lawBook.case0Law.articleDescriptions[0]);
+			UtilityClass.SetText(section2Text, lawBook.case0Law.articleDescriptions[1]);
+			UtilityClass.SetText(section3Text, lawBook.case0Law.articleDescriptions[2]);
 		}
 	}
 
 	//clear law book article text
 	private void ClearLawBookUI()
 	{
-		articleNumber.text = "";
-		section1Text.text = "";
-		section2Text.text = "";
-		section3Text.text = "";
+		UtilityClass.ClearText(articleNumber, section1Text, section2Text, section3Text);
 	}
 }

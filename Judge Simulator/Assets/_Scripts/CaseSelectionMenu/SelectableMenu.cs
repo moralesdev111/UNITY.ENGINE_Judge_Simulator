@@ -7,15 +7,15 @@ public class SelectableMenu : MonoBehaviour
 
 
 	//subscribe to event
-        private void OnEnable()
+    private void OnEnable()
 	{
-		SubscribeToCourtroomLoadSceneEvent();
+		UtilityClass.SubscribeObjectsToEvent(selectableMenuCases, selectableMenuCase => selectableMenuCase.onCourtroomScene += LoadCourtRoomScene);
 	}
 
 	//unsubscribe to event
 	private void OnDisable()
 	{
-		UnsubscribeToCourtroomLoadSceneEvent();
+		UtilityClass.UnsubscribeObjectFromEvent(selectableMenuCases, selectableMenuCase => selectableMenuCase.onCourtroomScene -= LoadCourtRoomScene);
 	}
 
 	//load courtroom scene
@@ -24,21 +24,5 @@ public class SelectableMenu : MonoBehaviour
     {
         SceneManager.LoadScene(2);
 		CaseManager.Instance.StartCase(caseInstance);
-	}
-
-	private void SubscribeToCourtroomLoadSceneEvent()
-	{
-		for (int i = 0; i < selectableMenuCases.Length; i++)
-		{
-			selectableMenuCases[i].onCourtroomScene += LoadCourtRoomScene;
-		}
-	}
-
-	private void UnsubscribeToCourtroomLoadSceneEvent()
-	{
-		for (int i = 0; i < selectableMenuCases.Length; i++)
-		{
-			selectableMenuCases[i].onCourtroomScene -= LoadCourtRoomScene;
-		}
 	}
 }
