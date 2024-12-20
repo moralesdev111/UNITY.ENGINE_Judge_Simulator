@@ -15,7 +15,10 @@ public class Person : ScriptableObject
 	public enum Role
 	{
 		defendant,
+		prosecutor,
 		plaintiff,
-		witness
+		witness,
+		plaintiffLawyer,
+		defendantLawyer
 	}
 }

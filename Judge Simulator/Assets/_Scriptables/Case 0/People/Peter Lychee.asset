@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 85e0304854d5b8d428f9d0a8714b465b, type: 3}
-  m_Name: LauraRamirez
+  m_Name: Peter Lychee
   m_EditorClassIdentifier: 
-  role: 3
-  personName: Laura
-  personSurname: Ramirez
-  personGender: Female
-  personAge: 29
+  role: 1
+  personName: Peter
+  personSurname: Lychee
+  personGender: Male
+  personAge: 39
   mentalSanity: 1
   criminalRecord: 0
-  fingerprintID: 15491
+  fingerprintID: 11119
   dialogues: []

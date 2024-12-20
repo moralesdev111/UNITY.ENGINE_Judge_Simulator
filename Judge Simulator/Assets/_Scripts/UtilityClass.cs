@@ -35,4 +35,20 @@ public static class UtilityClass
 			text[i].text = "";
 		}
 	}
+
+	public static void SetUIArrayElementsActiveAndText(TextMeshProUGUI[] uiElements, string[] content)
+	{
+		for (int i = 0; i < uiElements.Length; i++)
+		{
+			if (i < content.Length)
+			{
+				uiElements[i].gameObject.SetActive(true);
+				SetText(uiElements[i], content[i]);
+			}
+			else
+			{
+				uiElements[i].gameObject.SetActive(false);
+			}
+		}
+	}
 }

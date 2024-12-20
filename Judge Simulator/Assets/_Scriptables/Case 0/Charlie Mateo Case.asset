@@ -17,10 +17,11 @@ MonoBehaviour:
   caseDetails: Man tries to open door midflight
   chargesDescription:
   - Attempted endagerement of a flight
-  - Interferance with aircraft crew
+  - Attempted endagerement of a flight
   persons:
   - {fileID: 11400000, guid: 259a5f0048cc37a47b0dad9417f0f5cd, type: 2}
   - {fileID: 11400000, guid: 52253c09ce1d7b348ab1407c703c79b0, type: 2}
+  - {fileID: 11400000, guid: 113d314a9e2ee5040a1c1f4ca25f250a, type: 2}
+  - {fileID: 11400000, guid: c77c7552cc01a434aadf90d6c9ae0c8a, type: 2}
   evidence:
   - {fileID: 11400000, guid: 2a5dbd2dc33e5da47a8ffb273b83e489, type: 2}
-  - {fileID: 11400000, guid: af39ca4c225f22e458f134d5a258b1f3, type: 2}
